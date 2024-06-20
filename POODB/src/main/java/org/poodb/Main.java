@@ -17,12 +17,5 @@ public class Main {
 
         Menu menu = new Menu();
         menu.showMenu();
-
-//        CursoController cursoController = new CursoController(consoleView);
-//        String nombre ="Ciencias";
-//        String descripcion ="Curso 2";
-//        int estado = 1;
-//
-//        cursoController.agregarCurso(nombre,descripcion ,estado);
     }
 }
