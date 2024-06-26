@@ -18,6 +18,7 @@ public class MenuEstudiante {
     private boolean exit;
     Menu menu;
 
+
     public MenuEstudiante() {
         this.scanner = new Scanner(System.in);
         this.exit = false;
