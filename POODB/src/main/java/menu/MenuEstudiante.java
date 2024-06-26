@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class MenuEstudiante {
     private Scanner scanner;
     private boolean exit;
+    private Menu menu;
 
     public MenuEstudiante() {
         this.scanner = new Scanner(System.in);
@@ -55,9 +56,8 @@ public class MenuEstudiante {
                     listarEstudiantes(estudianteController);
                     break;
                 case 0:
-                    System.out.println("Saliendo...");
-                    exit = true;
-                    break;
+                    System.out.println("Volviendo al menu principal...");
+                    menu.showMenu();
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");
                     break;
@@ -103,8 +103,10 @@ public class MenuEstudiante {
         System.out.print("Id del estudiante a modificar: ");
         String id = scanner.nextLine();
 
+
         EstudianteModel estudiante;
         estudiante = estudianteController.consultarEstudiante(Integer.parseInt(id));
+        estudiante.setId(estudiante.getId());
 
         if (estudiante != null) {
             System.out.println("Estudiante encontrado: " + estudiante);
@@ -113,6 +115,9 @@ public class MenuEstudiante {
             if (!nuevoNombre.isEmpty()) {
                 estudiante.setNombre(nuevoNombre);
             }
+
+            estudiante.setIdentificacion(estudiante.getIdentificacion());
+
             System.out.print("Nuevo Email (dejar en blanco para mantener): ");
             String nuevoEmail = scanner.nextLine();
             if (!nuevoEmail.isEmpty()) {
@@ -140,6 +145,7 @@ public class MenuEstudiante {
         } else {
             System.out.println("Estudiante no encontrado.");
         }
+
     }
 
     private void eliminarEstudiante(EstudianteController estudianteController) {
