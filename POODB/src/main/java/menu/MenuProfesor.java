@@ -17,6 +17,7 @@ public class MenuProfesor {
     private Scanner scanner;
     private boolean exit;
     ProfesorDAO profesorDAO;
+    Menu menu;
 
     public MenuProfesor() {
         this.scanner = new Scanner(System.in);
@@ -56,8 +57,8 @@ public class MenuProfesor {
                     listarProfesor(profesorController);
                     break;
                 case 0:
-                    System.out.println("Saliendo...");
-                    exit = true;
+                    System.out.println("Volviendo al menu principal...");
+                    menu.showMenu();
                     break;
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");

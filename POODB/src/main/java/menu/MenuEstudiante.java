@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class MenuEstudiante {
     private Scanner scanner;
     private boolean exit;
-    private Menu menu;
+    Menu menu;
 
     public MenuEstudiante() {
         this.scanner = new Scanner(System.in);
@@ -58,6 +58,7 @@ public class MenuEstudiante {
                 case 0:
                     System.out.println("Volviendo al menu principal...");
                     menu.showMenu();
+                    break;
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");
                     break;
