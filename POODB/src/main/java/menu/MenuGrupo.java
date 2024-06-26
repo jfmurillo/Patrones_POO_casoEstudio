@@ -25,7 +25,7 @@ public class MenuGrupo {
         GrupoController grupoController = new GrupoController(consoleView);
 
         while (!exit) {
-            System.out.println("====Menu de Cursos====");
+            System.out.println("====Menu de grupos====");
             System.out.println("1. Inserción de nuevos grupos.");
             System.out.println("2. Modificación de grupos existentes.");
             System.out.println("3. Eliminación de grupos.");
@@ -66,7 +66,7 @@ public class MenuGrupo {
     }
 
     public void agregarGrupo(GrupoController grupoController) {
-        System.out.println("====Inserción de nuevo curso====");
+        System.out.println("====Inserción de nuevo grupo====");
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
         System.out.print("Descripcion: ");
@@ -78,41 +78,38 @@ public class MenuGrupo {
 
         GrupoModel grupoModel = new GrupoModel(nombre, desc, estado);
         grupoController.agregarGrupo(grupoModel);
-        System.out.println("Profesor insertado exitosamente.");
+        System.out.println("grupo insertado exitosamente.");
     }
 
     public void modificarGrupo(GrupoController grupoController) {
-        System.out.println("====Modificación de cursos====");
-        System.out.print("Id del curso a modificar: ");
-        String idCurso = scanner.nextLine();
+        System.out.println("====Modificación de grupos====");
+        System.out.print("Id del grupo a modificar: ");
+        String idGrupo = scanner.nextLine();
 
-        GrupoModel grupoModel = grupoController.consultarGrupo(Integer.parseInt(idCurso));
+        GrupoModel grupoModel = grupoController.consultarGrupo(Integer.parseInt(idGrupo));
+        grupoModel.setId(grupoModel.getId());
 
-        if (grupoModel != null) {
-            System.out.println("curso encontrado: " + grupoModel);
-            System.out.print("Nuevo nombre (dejar en blanco para mantener): ");
-            String nuevoNombre = scanner.nextLine();
-            if (!nuevoNombre.isEmpty()) {
-                grupoModel.setNombre(nuevoNombre);
-            }
-            System.out.print("Nueva descripcion (dejar en blanco para mantener): ");
-            String nuevaDesc = scanner.nextLine();
-            if (!nuevaDesc.isEmpty()) {
-                grupoModel.setDescripcion(nuevaDesc);
-            }
-
-            System.out.print("Nuevo Estado (0 = Inactivo, 1 = Activo, dejar en blanco para mantener): ");
-            String nuevoEstadoStr = scanner.nextLine();
-            if (!nuevoEstadoStr.isEmpty()) {
-                int nuevoEstado = Integer.parseInt(nuevoEstadoStr);
-                grupoModel.setEstado(nuevoEstado);
-            }
-
-            grupoController.modificarGrupo(grupoModel);
-            System.out.println("Grupo modificado exitosamente.");
-        } else {
-            System.out.println("Grupo no encontrado.");
+        System.out.println("grupo encontrado: " + grupoModel);
+        System.out.print("Nuevo nombre (dejar en blanco para mantener): ");
+        String nuevoNombre = scanner.nextLine();
+        if (!nuevoNombre.isEmpty()) {
+            grupoModel.setNombre(nuevoNombre);
         }
+        System.out.print("Nueva descripcion (dejar en blanco para mantener): ");
+        String nuevaDesc = scanner.nextLine();
+        if (!nuevaDesc.isEmpty()) {
+            grupoModel.setDescripcion(nuevaDesc);
+        }
+
+        System.out.print("Nuevo Estado (0 = Inactivo, 1 = Activo, dejar en blanco para mantener): ");
+        String nuevoEstadoStr = scanner.nextLine();
+        if (!nuevoEstadoStr.isEmpty()) {
+            int nuevoEstado = Integer.parseInt(nuevoEstadoStr);
+            grupoModel.setEstado(nuevoEstado);
+        }
+
+        grupoController.modificarGrupo(grupoModel);
+        System.out.println("Grupo modificado exitosamente.");
     }
 
     private void eliminarGrupo(GrupoController grupoController) {
@@ -136,9 +133,9 @@ public class MenuGrupo {
 
         GrupoModel grupoModel = grupoController.consultarGrupo(idGrupo);
         if (grupoModel != null) {
-            System.out.println("Curso encontrado: " + grupoModel);
+            System.out.println("Grupo encontrado: " + grupoModel);
         } else {
-            System.out.println("Curso no encontrado.");
+            System.out.println("Grupo no encontrado.");
         }
     }
 

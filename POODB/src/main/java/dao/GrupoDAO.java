@@ -34,6 +34,7 @@ public class GrupoDAO {
             stmt.setString(1, objeto.getNombre());
             stmt.setString(2, objeto.getDescripcion());
             stmt.setInt(3, objeto.getEstado());
+            stmt.setInt(4, objeto.getId());
             stmt.executeUpdate();
         }
     }
