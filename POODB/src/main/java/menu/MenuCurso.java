@@ -87,6 +87,7 @@ public class MenuCurso {
         String idCurso = scanner.nextLine();
 
         CursoModel cursoModel = cursoController.consultarCurso(Integer.parseInt(idCurso));
+        cursoModel.setId(cursoModel.getId());
 
         if (cursoModel != null) {
             System.out.println("curso encontrado: " + cursoModel);
