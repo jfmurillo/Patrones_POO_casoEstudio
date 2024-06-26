@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class MenuCurso {
     private Scanner scanner;
     private boolean exit;
+    Menu menu;
 
     public MenuCurso() {
         scanner = new Scanner(System.in);
@@ -52,8 +53,8 @@ public class MenuCurso {
                     listarCurso(cursoController);
                     break;
                 case 0:
-                    System.out.println("Saliendo...");
-                    exit = true;
+                    System.out.println("Volviendo al menu principal...");
+                    menu.showMenu();
                     break;
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");

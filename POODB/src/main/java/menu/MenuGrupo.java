@@ -6,19 +6,21 @@ import model.CursoModel;
 import model.GrupoModel;
 import view.ConsoleView;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 public class MenuGrupo {
     private Scanner scanner;
     private boolean exit;
+    Menu menu;
 
     public MenuGrupo() {
         scanner = new Scanner(System.in);
         exit = false;
     }
 
-    public void showMenuGrupo() {
+    public void showMenuGrupo() throws SQLException {
         ConsoleView consoleView = new ConsoleView();
         GrupoController grupoController = new GrupoController(consoleView);
 
@@ -51,8 +53,8 @@ public class MenuGrupo {
                     listarGrupos(grupoController);
                     break;
                 case 0:
-                    System.out.println("Saliendo...");
-                    exit = true;
+                    System.out.println("Volviendo al menu principal...");
+                    menu.showMenu();
                     break;
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");
