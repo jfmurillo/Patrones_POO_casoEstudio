@@ -94,6 +94,8 @@ public class MenuProfesor {
         String id = scanner.nextLine();
 
         ProfesorModel profesorModel = profesorController.consultarProfesor(Integer.parseInt(id));
+        profesorModel.setIdentificacion(profesorModel.getIdentificacion());
+
 
         if (profesorModel != null) {
             System.out.println("Profesor encontrado: " + profesorModel);
@@ -102,6 +104,7 @@ public class MenuProfesor {
             if (!nuevoNombre.isEmpty()) {
                 profesorModel.setNombre(nuevoNombre);
             }
+            profesorModel.setIdentificacion(profesorModel.getIdentificacion());
             System.out.print("Nuevo Email (dejar en blanco para mantener): ");
             String nuevoEmail = scanner.nextLine();
             if (!nuevoEmail.isEmpty()) {

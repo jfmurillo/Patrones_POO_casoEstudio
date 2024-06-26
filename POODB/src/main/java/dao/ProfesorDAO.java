@@ -36,6 +36,7 @@ public class ProfesorDAO {
             ps.setString(3, profesorModel.getEmail());
             ps.setString(4, profesorModel.getDepartamento());
             ps.setInt(5, profesorModel.getEstado());
+            ps.setInt(6, profesorModel.getId());
             ps.executeUpdate();
         }
     }

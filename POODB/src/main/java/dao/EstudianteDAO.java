@@ -36,6 +36,7 @@ public class EstudianteDAO {
             ps.setString(3, estudiante.getEmail());
             ps.setDate(4, estudiante.getFechaNacimiento());
             ps.setInt(5, estudiante.getEstado());
+            ps.setInt(6,estudiante.getId());
             ps.executeUpdate();
         }
     }
