@@ -22,6 +22,7 @@ public class MenuProfesor {
     public MenuProfesor() {
         this.scanner = new Scanner(System.in);
         this.exit = false;
+        this.menu = new Menu();
     }
 
     public void showMenuProfesor() throws SQLException {
@@ -35,7 +36,7 @@ public class MenuProfesor {
             System.out.println("3. Eliminación de profesores.");
             System.out.println("4. Consulta de profesores.");
             System.out.println("5. Lista de profesores.");
-            System.out.println("0. Salir.");
+            System.out.println("0. Salir al menu de inicio.");
             System.out.print("Seleccione una opción: ");
 
             int choice = scanner.nextInt();
@@ -153,7 +154,7 @@ public class MenuProfesor {
 
         ProfesorModel profesor = profesorController.consultarProfesor(idProf);
         if (profesor != null) {
-            System.out.println("profesor consultado exitosamente.");
+            System.out.println("profesor consultado exitosamente " + profesor.getNombre());
         } else {
             System.out.println("profesor no encontrado.");
         }
@@ -164,7 +165,7 @@ public class MenuProfesor {
         List<ProfesorModel> profesores = profesorController.listarProfesores();
         if (profesores != null) {
             for (ProfesorModel profesor : profesores) {
-                System.out.println(profesor);
+                System.out.println(profesor.getNombre());
             }
         } else {
             System.out.println("profesor no encontrado.");

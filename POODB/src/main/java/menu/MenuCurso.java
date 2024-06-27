@@ -18,6 +18,7 @@ public class MenuCurso {
     public MenuCurso() {
         scanner = new Scanner(System.in);
         exit = false;
+        this.menu = new Menu();
     }
 
     public void showMenuCurso() throws SQLException {
@@ -31,7 +32,7 @@ public class MenuCurso {
             System.out.println("3. Eliminación de cursos.");
             System.out.println("4. Consulta de cursos.");
             System.out.println("5. Lista de cursos.");
-            System.out.println("0. Salir.");
+            System.out.println("0. Salir al menu de inicio.");
             System.out.print("Seleccione una opción: ");
 
             int choice = scanner.nextInt();
@@ -54,7 +55,7 @@ public class MenuCurso {
                     break;
                 case 0:
                     System.out.println("Volviendo al menu principal...");
-                    menu.showMenu();
+                    this.menu.showMenu();
                     break;
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");
@@ -137,7 +138,7 @@ public class MenuCurso {
 
         CursoModel cursoModel = cursoController.consultarCurso(idCurso);
         if (cursoModel != null) {
-            System.out.println("Curso encontrado: " + cursoModel);
+            System.out.println("Curso encontrado: " + cursoModel.getNombre());
         } else {
             System.out.println("Curso no encontrado.");
         }
@@ -148,7 +149,7 @@ public class MenuCurso {
         List<CursoModel> cursos = cursoController.listarCursos();
         if (!cursos.isEmpty()) {
             for (CursoModel curso : cursos) {
-                System.out.println(curso);
+                System.out.println(curso.getNombre());
             }
         } else {
             System.out.println("No hay cursos disponibles.");
