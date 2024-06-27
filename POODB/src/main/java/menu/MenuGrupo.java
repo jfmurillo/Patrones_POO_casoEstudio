@@ -18,6 +18,7 @@ public class MenuGrupo {
     public MenuGrupo() {
         scanner = new Scanner(System.in);
         exit = false;
+        this.menu = new Menu();
     }
 
     public void showMenuGrupo() throws SQLException {
@@ -31,7 +32,7 @@ public class MenuGrupo {
             System.out.println("3. Eliminación de grupos.");
             System.out.println("4. Consulta de grupos.");
             System.out.println("5. Listar grupos.");
-            System.out.println("0. Salir.");
+            System.out.println("0. Volver al menu de inicio.");
             System.out.print("Seleccione una opción: ");
 
             int choice = scanner.nextInt();
@@ -54,7 +55,7 @@ public class MenuGrupo {
                     break;
                 case 0:
                     System.out.println("Volviendo al menu principal...");
-                    menu.showMenu();
+                    this.menu.showMenu();
                     break;
                 default:
                     System.out.println("Opción no válida, por favor intenta de nuevo.");
@@ -133,7 +134,7 @@ public class MenuGrupo {
 
         GrupoModel grupoModel = grupoController.consultarGrupo(idGrupo);
         if (grupoModel != null) {
-            System.out.println("Grupo encontrado: " + grupoModel);
+            System.out.println("Grupo encontrado: " + grupoModel.getNombre());
         } else {
             System.out.println("Grupo no encontrado.");
         }
@@ -144,7 +145,7 @@ public class MenuGrupo {
         List<GrupoModel> grupos = grupoController.listarGrupos();
         if (grupos != null || !grupos.isEmpty()) {
             for (GrupoModel grupoModel : grupos) {
-                System.out.println(grupoModel);
+                System.out.println(grupoModel.getNombre());
             }
         } else {
             System.out.println("Grupo no encontrado.");

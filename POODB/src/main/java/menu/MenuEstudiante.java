@@ -22,6 +22,7 @@ public class MenuEstudiante {
     public MenuEstudiante() {
         this.scanner = new Scanner(System.in);
         this.exit = false;
+        this.menu = new Menu();
     }
 
     public void showMenuEstudiante() throws SQLException {
@@ -35,7 +36,7 @@ public class MenuEstudiante {
             System.out.println("3. Eliminación de registros.");
             System.out.println("4. Consulta de registros.");
             System.out.println("5. Lista de registros.");
-            System.out.println("0. Salir.");
+            System.out.println("0. Salir al menu de inicio.");
             System.out.print("Seleccione una opción: ");
 
             int choice = scanner.nextInt();
@@ -171,7 +172,7 @@ public class MenuEstudiante {
 
         EstudianteModel estudiante = estudianteController.consultarEstudiante(idEst);
         if (estudiante != null) {
-            System.out.println("Estudiante consultado exitosamente.");
+            System.out.println("Estudiante consultado exitosamente: " + estudiante.getNombre());
         } else {
             System.out.println("Estudiante no encontrado.");
         }
@@ -182,7 +183,7 @@ public class MenuEstudiante {
         List<EstudianteModel> estudiantes = estudianteController.listarEstudiantes();
         if (estudiantes != null) {
             for (EstudianteModel estudiante : estudiantes) {
-                System.out.println("Estudiante: " + estudiante);
+                System.out.println("Estudiante: " + estudiante.getNombre());
             }
         } else {
             System.out.println("Estudiante no encontrado.");

@@ -19,6 +19,7 @@ public class Menu {
             System.out.println("2. Profesor");
             System.out.println("3. Grupo");
             System.out.println("4. Curso");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
             int choice = scanner.nextInt();
@@ -43,7 +44,7 @@ public class Menu {
                     MenuCurso cur = new MenuCurso();
                     cur.showMenuCurso();
                     break;
-                case 5:
+                case 0:
                     System.out.println("Saliendo...");
                     exit = true;
                     break;
