@@ -22,11 +22,10 @@ public class Main extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // Agregar componentes a la ventana
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
-        JLabel label = new JLabel("¡Hola, mundo!");
+        JLabel label = new JLabel("label");
         panel.add(label);
 
         JButton button = new JButton("Conectar a la Base de Datos");
@@ -46,9 +45,7 @@ public class Main extends JFrame {
         });
 
         getContentPane().add(panel);
-
         setVisible(true);
-
         initializeComponents();
     }
 
@@ -60,7 +57,6 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             new Main();
-
         });
     }
 }

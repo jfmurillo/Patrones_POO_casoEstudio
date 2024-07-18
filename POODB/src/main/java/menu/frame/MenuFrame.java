@@ -37,7 +37,7 @@ public class MenuFrame extends JFrame {
         btnEstudiante.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado la Opción Estudiante");
+                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Estudiante");
                 // Aquí llamas al menú de estudiante
                 MenuEstudianteFrame estFrame = new MenuEstudianteFrame();
                 estFrame.setVisible(true);
@@ -47,7 +47,7 @@ public class MenuFrame extends JFrame {
         btnProfesor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado la Opción Profesor");
+                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Profesor");
                 // Aquí llamas al menú de profesor
                 MenuProfesorFrame profFrame = new MenuProfesorFrame();
                 profFrame.setVisible(true);
@@ -57,7 +57,7 @@ public class MenuFrame extends JFrame {
         btnGrupo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado la Opción Grupo");
+                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Grupo");
                 // Aquí llamas al menú de grupo
                 MenuGrupoFrame grupoFrame = new MenuGrupoFrame();
                 grupoFrame.setVisible(true);
@@ -67,10 +67,8 @@ public class MenuFrame extends JFrame {
         btnCurso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado la Opción Curso");
-                // Aquí llamas al menú de curso
-                MenuCursoFrame cursoFrame = new MenuCursoFrame();
-                cursoFrame.setVisible(true);
+                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Curso");
+                new MenuCursoFrame().setVisible(true);
             }
         });
 
