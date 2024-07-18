@@ -4,18 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import controller.ConexionController;
 import menu.Menu;
+import menu.frame.MenuFrame;
 import view.ConsoleView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.sql.SQLException;
 
 
-public class Main extends JFrame{
+public class Main extends JFrame {
+    private ConsoleView consoleView;
+    private ConexionController conexionController;
 
-    public Main(){
+    public Main() {
         setTitle("PP_POO");
         setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cierra la aplicación al cerrar la ventana
-        setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
         // Agregar componentes a la ventana
         JPanel panel = new JPanel();
@@ -24,27 +29,38 @@ public class Main extends JFrame{
         JLabel label = new JLabel("¡Hola, mundo!");
         panel.add(label);
 
-        JButton button = new JButton("Haz clic");
+        JButton button = new JButton("Conectar a la Base de Datos");
         panel.add(button);
 
-        // Agrega el panel al contenido de la ventana
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    conexionController.openConnection();
+                    label.setText("Conexión establecida");
+                    new MenuFrame().setVisible(true);
+                } catch (Error error) {
+                    label.setText("Error al conectar: " + error.getMessage());
+                }
+            }
+        });
+
         getContentPane().add(panel);
 
-        // Mostrar la ventana
         setVisible(true);
+
+        initializeComponents();
     }
 
-    public static void main(String[] args) throws SQLException {
-        System.out.print("Hello MySQL!");
+    private void initializeComponents() {
+        consoleView = new ConsoleView();
+        conexionController = new ConexionController(consoleView);
+    }
 
-        ConsoleView consoleView = new ConsoleView();
-        ConexionController conexionController = new ConexionController(consoleView);
-        conexionController.openConnection();
-
-//        Menu menu = new Menu();
-//        menu.showMenu();
+    public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new Main(); // Crear y mostrar la ventana
+            new Main();
+
         });
     }
 }
