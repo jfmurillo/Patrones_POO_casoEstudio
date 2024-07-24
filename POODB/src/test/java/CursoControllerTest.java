@@ -37,7 +37,7 @@ public class CursoControllerTest{
     }
 
     @Test
-    public void testAgregarCurso() throws SQLException { // FUNCIONAAAAAAAAAAAAAAAAA
+    public void testAgregarCurso() throws SQLException {
         //CursoModel curso = new CursoModel("Curso de Java","Cuatri 2" , 1);
         String nombre = "Typrescript Mock";
         String descripcion = "Prueba";
