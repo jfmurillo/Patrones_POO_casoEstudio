@@ -136,7 +136,7 @@ public class MenuEstudiante extends JFrame {
             if (!nuevaFechaStr.isEmpty()) {
                 try {
                     Date nuevaFechaNacimiento = new SimpleDateFormat("dd/MM/yyyy").parse(nuevaFechaStr);
-                    estudiante.setFechaNacimiento(nuevaFechaNacimiento);
+                    estudiante.setFechaNacimiento((java.sql.Date) nuevaFechaNacimiento);
                 } catch (ParseException e) {
                     System.out.println("Fecha inválida, por favor usa el formato dd/MM/yyyy.");
                 }
