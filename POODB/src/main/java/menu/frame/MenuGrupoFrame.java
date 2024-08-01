@@ -32,10 +32,10 @@ public class MenuGrupoFrame extends JFrame {
         JPanel panelBotones = new JPanel();
         panelBotones.setLayout(new GridLayout(6, 1));
 
-        btnAgregar = new JButton("Agregar nuevos grupos");
-        btnModificar = new JButton("Modificación de grupos existentes");
-        btnEliminar = new JButton("Eliminación de grupos");
-        btnConsultar = new JButton("Consulta de grupos");
+        btnAgregar = new JButton("Agregar");
+        btnModificar = new JButton("Modificacar");
+        btnEliminar = new JButton("Eliminar");
+        btnConsultar = new JButton("Consultar");
         btnListar = new JButton("Lista de grupos");
         btnSalir = new JButton("Salir al menu de inicio");
 
@@ -103,8 +103,8 @@ public class MenuGrupoFrame extends JFrame {
     }
 
     private void agregarGrupo() {
-        String nombre = JOptionPane.showInputDialog(this, "Nombre del curso: ");
-        String desc = JOptionPane.showInputDialog(this, "Descripción del curso: ");
+        String nombre = JOptionPane.showInputDialog(this, "Nombre: ");
+        String desc = JOptionPane.showInputDialog(this, "Descripción: ");
         int estado = Integer.parseInt(JOptionPane.showInputDialog(this, "Estado (0 = Inactivo, 1 = Activo): "));
 
         GrupoModel grupo = new GrupoModel(nombre, desc, estado);
@@ -158,7 +158,7 @@ public class MenuGrupoFrame extends JFrame {
         GrupoModel grupo = grupoController.consultarGrupo(idGrupo);
         if (grupo != null) {
             textArea.append("Curso encontrado: " +
-                    "Nombre: " + grupo.getNombre() + ", Descripcion: " + grupo.getDescripcion() + ", Estado: " + grupo.getEstado() + "\n");
+                    "ID" + grupo.getId()+ "Nombre: " + grupo.getNombre() + ", Descripcion: " + grupo.getDescripcion() + ", Estado: " + grupo.getEstado() + "\n");
         } else {
             textArea.append("Grupo no encontrado.\n");
         }
@@ -168,7 +168,7 @@ public class MenuGrupoFrame extends JFrame {
         List<GrupoModel> grupos = grupoController.listarGrupos();
         if (!grupos.isEmpty()) {
             for (GrupoModel grupo : grupos) {
-                textArea.append("Nombre: " + grupo.getNombre() + ", Descripcion: " + grupo.getDescripcion() + ", Estado" + grupo.getEstado() + "\n");
+                textArea.append("ID "+grupo.getEstado()+ "// Nombre: " + grupo.getNombre() + "// Descripcion: " + grupo.getDescripcion() + "\n");
             }
         } else {
             textArea.append("No hay grupos disponibles.\n");
