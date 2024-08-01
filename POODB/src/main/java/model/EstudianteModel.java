@@ -50,14 +50,13 @@ public class EstudianteModel {
         this.email = email;
     }
 
-    public java.sql.Date getFechaNacimiento() {
-        return (java.sql.Date) fechaNacimiento;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
     public int getEstado() {
         return estado;
     }
