@@ -17,7 +17,7 @@ public class Main extends JFrame {
     private ConexionController conexionController;
 
     public Main() {
-        setTitle("PP_POO");
+        setTitle("Progra Patrones_POO_Proyecto");
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -25,8 +25,8 @@ public class Main extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
-        JLabel label = new JLabel("label");
-        panel.add(label);
+        JLabel label = new JLabel();
+
 
         JButton button = new JButton("Conectar a la Base de Datos");
         panel.add(button);

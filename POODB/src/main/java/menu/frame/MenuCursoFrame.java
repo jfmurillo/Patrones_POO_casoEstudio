@@ -160,7 +160,7 @@ public class MenuCursoFrame extends JFrame {
         CursoModel cursoModel = cursoController.consultarCurso(idCurso);
         if (cursoModel != null) {
             textArea.append("Curso encontrado: " +
-                    "Nombre: " + cursoModel.getNombre() + ", Descripcion: " + cursoModel.getDescripcion() + ", Estado: " + cursoModel.getEstado() + "\n");
+                    ">> ID: " + cursoModel.getEstado() + "Nombre: " + cursoModel.getNombre() + ">> Descripcion: " + cursoModel.getDescripcion() + "\n");
         } else {
             textArea.append("Curso no encontrado.\n");
         }
@@ -170,7 +170,7 @@ public class MenuCursoFrame extends JFrame {
         List<CursoModel> cursos = cursoController.listarCursos();
         if (!cursos.isEmpty()) {
             for (CursoModel curso : cursos) {
-                textArea.append("Nombre: " + curso.getNombre() + ", Descripcion: " + curso.getDescripcion() + ", Estado" + curso.getEstado() + "\n");
+                textArea.append(">> ID: " + curso.getEstado() +"Nombre: " + curso.getNombre() + ">> Descripcion: " + curso.getDescripcion() + "\n");
             }
         } else {
             textArea.append("No hay cursos disponibles.\n");
