@@ -25,8 +25,7 @@ public class Main extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
 
-        JLabel label = new JLabel("label");
-        panel.add(label);
+        JLabel label = new JLabel();
 
         JButton button = new JButton("Conectar a la Base de Datos");
         panel.add(button);
