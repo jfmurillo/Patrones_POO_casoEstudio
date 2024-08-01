@@ -37,8 +37,7 @@ public class MenuFrame extends JFrame {
         btnEstudiante.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Estudiante");
-                // Aquí llamas al menú de estudiante
+                //JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Estudiante");
                 MenuEstudianteFrame estFrame = new MenuEstudianteFrame();
                 estFrame.setVisible(true);
             }
@@ -47,7 +46,7 @@ public class MenuFrame extends JFrame {
         btnProfesor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Profesor");
+                //JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Profesor");
                 // Aquí llamas al menú de profesor
                 MenuProfesorFrame profFrame = new MenuProfesorFrame();
                 profFrame.setVisible(true);
@@ -57,7 +56,7 @@ public class MenuFrame extends JFrame {
         btnGrupo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Grupo");
+                //JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Grupo");
                 // Aquí llamas al menú de grupo
                 MenuGrupoFrame grupoFrame = new MenuGrupoFrame();
                 grupoFrame.setVisible(true);
@@ -67,7 +66,7 @@ public class MenuFrame extends JFrame {
         btnCurso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Curso");
+                //JOptionPane.showMessageDialog(MenuFrame.this, "Has seleccionado Curso");
                 new MenuCursoFrame().setVisible(true);
             }
         });
